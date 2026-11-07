@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "id": "<uuid>",
+      "bookedAt": "2026-08-05",
+      "description": "Wifi agosto",
+      "totalCents": "70000",
+      "reversesTransactionId": null,
+      "reversedByTransactionId": null,
+      "createdAt": "<timestamp>",
+      "movements": [
+        { "accountId": "<uuid>", "accountName": "TDC", "accountKind": "credit", "amountCents": "-70000" },
+        { "accountId": "<uuid>", "accountName": "Comida", "accountKind": "category", "amountCents": "70000" }
+      ]
+    }
+  ],
+  "nextCursor": null
+}

@@ -1,0 +1,17 @@
+{
+  "data": [
+    {
+      "id": "<uuid>",
+      "name": "Sueldo",
+      "kind": "income_source",
+      "currency": "MXN",
+      "balanceCents": "0",
+      "archivedAt": null,
+      "createdAt": "<timestamp>",
+      "updatedAt": "<timestamp>"
+    }
+  ],
+  "page": 1,
+  "pageSize": 50,
+  "total": 1
+}

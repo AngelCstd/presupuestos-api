@@ -1,0 +1,7 @@
+{
+  "statusCode": 404,
+  "code": "ACCOUNT_NOT_FOUND",
+  "message": "<message>",
+  "timestamp": "<timestamp>",
+  "path": "/api/v1/accounts/<uuid>"
+}

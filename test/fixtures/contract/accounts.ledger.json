@@ -1,0 +1,12 @@
+{
+  "data": [
+    {
+      "transactionId": "<uuid>",
+      "bookedAt": "2026-08-05",
+      "description": "Wifi agosto",
+      "amountCents": "-70000",
+      "createdAt": "<timestamp>"
+    }
+  ],
+  "nextCursor": null
+}

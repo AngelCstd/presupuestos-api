@@ -1,0 +1,49 @@
+{
+  "data": [
+    {
+      "id": "<uuid>", "name": "Ahorro", "kind": "category", "rolloverType": "accumulate",
+      "currency": "MXN", "balanceCents": "0", "archivedAt": null,
+      "createdAt": "<timestamp>", "updatedAt": "<timestamp>",
+      "period": { "periodId": "<uuid>", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "status": "no_budget" }
+    },
+    {
+      "id": "<uuid>", "name": "Comida", "kind": "category", "rolloverType": "reset",
+      "currency": "MXN", "balanceCents": "70000", "archivedAt": null,
+      "createdAt": "<timestamp>", "updatedAt": "<timestamp>",
+      "period": { "periodId": "<uuid>", "assignedCents": "200000", "spentCents": "70000", "availableCents": "130000", "hasBudget": true, "status": "available" }
+    },
+    {
+      "id": "<uuid>", "name": "Hogar", "kind": "category", "rolloverType": "reset",
+      "currency": "MXN", "balanceCents": "0", "archivedAt": null,
+      "createdAt": "<timestamp>", "updatedAt": "<timestamp>",
+      "period": { "periodId": "<uuid>", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "status": "no_budget" }
+    },
+    {
+      "id": "<uuid>", "name": "Personal", "kind": "category", "rolloverType": "reset",
+      "currency": "MXN", "balanceCents": "0", "archivedAt": null,
+      "createdAt": "<timestamp>", "updatedAt": "<timestamp>",
+      "period": { "periodId": "<uuid>", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "status": "no_budget" }
+    },
+    {
+      "id": "<uuid>", "name": "Salud", "kind": "category", "rolloverType": "accumulate",
+      "currency": "MXN", "balanceCents": "0", "archivedAt": null,
+      "createdAt": "<timestamp>", "updatedAt": "<timestamp>",
+      "period": { "periodId": "<uuid>", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "status": "no_budget" }
+    },
+    {
+      "id": "<uuid>", "name": "Servicios", "kind": "category", "rolloverType": "accumulate",
+      "currency": "MXN", "balanceCents": "0", "archivedAt": null,
+      "createdAt": "<timestamp>", "updatedAt": "<timestamp>",
+      "period": { "periodId": "<uuid>", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "status": "no_budget" }
+    },
+    {
+      "id": "<uuid>", "name": "Transporte", "kind": "category", "rolloverType": "reset",
+      "currency": "MXN", "balanceCents": "0", "archivedAt": null,
+      "createdAt": "<timestamp>", "updatedAt": "<timestamp>",
+      "period": { "periodId": "<uuid>", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "status": "no_budget" }
+    }
+  ],
+  "page": 1,
+  "pageSize": 50,
+  "total": 7
+}

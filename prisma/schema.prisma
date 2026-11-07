@@ -1,0 +1,176 @@
+// Bootstrap. No implementa nada de TASK-db.md: los modelos, enums e
+// índices llegan con las migraciones U01+ del loop.
+//
+// ⚠️ Sin `shadowDatabaseUrl` ni `multiSchema` — ambos probados y
+// descartados. Ver TASK-auth.md, "shadowDatabaseUrl: probado y
+// descartado". `multiSchema` (necesario para que Prisma tolere la FK
+// cruzada public.profiles → auth.users en cualquier comando que
+// introspecte la base) hace que Prisma trate `auth` como un schema que
+// gestiona — y lo borra en CUALQUIER operación de reset, no solo en la
+// shadow database de `migrate dev`. Probado: con `multiSchema` activo,
+// `prisma migrate reset` borra `auth.users` y la propia migración de
+// `profiles` falla al reaplicarse (P3018, "relation auth.users does not
+// exist") — rompe /verify por completo, no es aceptable bajo ninguna
+// circunstancia.
+//
+// Consecuencia: no hay ninguna herramienta de Prisma para verificar
+// automáticamente que schema.prisma sigue en sync con la base — ver
+// TASK-db.md §3, "Verificación de sync — manual, sin tooling de Prisma".
+//
+// Flujo de migraciones: se escriben a mano (TASK-db.md §3), se aplican
+// con `migrate deploy`. `migrate dev` (con o sin `--create-only`) está
+// PROHIBIDO.
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum AccountType {
+  Asset      @map("asset")
+  Receivable @map("receivable")
+  Liability  @map("liability")
+  Income     @map("income")
+  Expense    @map("expense")
+  Equity     @map("equity")
+
+  @@map("account_type")
+}
+
+enum RolloverType {
+  Accumulate @map("accumulate")
+  Reset      @map("reset")
+
+  @@map("rollover_type")
+}
+
+enum BudgetEntrySource {
+  Manual   @map("manual")
+  Rollover @map("rollover")
+
+  @@map("budget_entry_source")
+}
+
+/// 1:1 con auth.users (schema `auth`, fuera de Prisma — lo mantiene
+/// Supabase / el stub local de TASK-auth). La FK real vive en la
+/// migración SQL, no aquí: Prisma no puede modelar una relación hacia
+/// una tabla que no gestiona sin `multiSchema`, y `multiSchema` está
+/// descartado (ver arriba).
+model Profile {
+  id        String    @id @db.Uuid
+  timezone  String    @default("America/Mexico_City")
+  deletedAt DateTime? @map("deleted_at") @db.Timestamptz(6)
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@map("profiles")
+}
+
+// Sin @relation hacia Profile (ni entre sí, más adelante): el patrón de
+// Repository de este proyecto filtra por user_id explícitamente en
+// SQL/$queryRaw, no vía includes relacionales de Prisma. Mantiene el
+// parseo de check-schema-sync.ts simple (evita distinguir campos de
+// relación, que no tienen columna física, de campos escalares).
+model Account {
+  id           String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId       String        @map("user_id") @db.Uuid
+  name         String
+  type         AccountType
+  currency     String        @default("MXN") @db.Char(3)
+  rolloverType RolloverType? @map("rollover_type")
+  isSystem     Boolean       @default(false) @map("is_system")
+  archivedAt   DateTime?     @map("archived_at") @db.Timestamptz(6)
+  createdAt    DateTime      @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime      @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@map("accounts")
+}
+
+model BudgetPeriod {
+  id        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId    String    @map("user_id") @db.Uuid
+  startsOn  DateTime  @map("starts_on") @db.Date
+  endsOn    DateTime  @map("ends_on") @db.Date
+  closedAt  DateTime? @map("closed_at") @db.Timestamptz(6)
+  deletedAt DateTime? @map("deleted_at") @db.Timestamptz(6)
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@map("budget_periods")
+}
+
+model Transaction {
+  id                     String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId                 String    @map("user_id") @db.Uuid
+  bookedAt               DateTime  @map("booked_at") @db.Date
+  description            String
+  idempotencyKey         String?   @map("idempotency_key") @db.Uuid
+  reversesTransactionId  String?   @map("reverses_transaction_id") @db.Uuid
+  createdAt              DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@map("transactions")
+}
+
+model Entry {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  transactionId String   @map("transaction_id") @db.Uuid
+  userId        String   @map("user_id") @db.Uuid
+  accountId     String   @map("account_id") @db.Uuid
+  amountCents   BigInt   @map("amount_cents")
+  createdAt     DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@map("entries")
+}
+
+model BudgetEntry {
+  id           String            @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId       String            @map("user_id") @db.Uuid
+  periodId     String            @map("period_id") @db.Uuid
+  categoryId   String            @map("category_id") @db.Uuid
+  amountCents  BigInt            @map("amount_cents")
+  source       BudgetEntrySource @default(Manual)
+  note         String?
+  deletedAt    DateTime?         @map("deleted_at") @db.Timestamptz(6)
+  createdAt    DateTime          @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime          @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@map("budget_entries")
+}
+
+model RecurringTemplate {
+  id               String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId           String    @map("user_id") @db.Uuid
+  name             String
+  accountId        String?   @map("account_id") @db.Uuid
+  categoryId       String    @map("category_id") @db.Uuid
+  amountCents      BigInt    @map("amount_cents")
+  dayOfMonth       Int       @map("day_of_month") @db.SmallInt
+  nextDueOn        DateTime  @map("next_due_on") @db.Date
+  lastConfirmedOn  DateTime? @map("last_confirmed_on") @db.Date
+  isActive         Boolean   @default(true) @map("is_active")
+  deletedAt        DateTime? @map("deleted_at") @db.Timestamptz(6)
+  createdAt        DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt        DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@map("recurring_templates")
+}
+
+// Sin FK hacia Profile: el registro de errores es best-effort
+// (GlobalExceptionFilter, TASK-auth.md) y no debe poder fallar por una
+// violación de integridad referencial.
+model ErrorLog {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  message   String
+  stack     String?
+  context   String?
+  userId    String?  @map("user_id") @db.Uuid
+  metadata  Json?
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@map("error_log")
+}

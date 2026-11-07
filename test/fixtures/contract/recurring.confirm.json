@@ -1,0 +1,32 @@
+{
+  "transaction": {
+    "id": "<uuid>",
+    "bookedAt": "2026-08-06",
+    "description": "Wifi Totalplay",
+    "totalCents": "70000",
+    "reversesTransactionId": null,
+    "createdAt": "<timestamp>",
+    "budgetImpact": {
+      "status": "in_open_period",
+      "closedPeriodId": null,
+      "compensatedInPeriodId": null,
+      "compensations": []
+    }
+  },
+  "template": {
+    "id": "<uuid>",
+    "name": "Wifi Totalplay",
+    "categoryId": "<uuid>",
+    "categoryName": "Servicios",
+    "accountId": "<uuid>",
+    "accountName": "TDC",
+    "amountCents": "70000",
+    "dayOfMonth": 15,
+    "nextDueOn": "2026-08-15",
+    "lastConfirmedOn": "2026-08-06",
+    "isActive": true,
+    "isDue": false,
+    "createdAt": "<timestamp>",
+    "updatedAt": "<timestamp>"
+  }
+}

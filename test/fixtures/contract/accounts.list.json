@@ -1,0 +1,10 @@
+{
+  "data": [
+    { "id": "<uuid>", "name": "Nu", "kind": "cash", "currency": "MXN", "balanceCents": "0", "archivedAt": null, "createdAt": "<timestamp>", "updatedAt": "<timestamp>" },
+    { "id": "<uuid>", "name": "Por cobrar: Fer", "kind": "receivable", "currency": "MXN", "balanceCents": "0", "archivedAt": null, "createdAt": "<timestamp>", "updatedAt": "<timestamp>" },
+    { "id": "<uuid>", "name": "TDC", "kind": "credit", "currency": "MXN", "balanceCents": "0", "archivedAt": null, "createdAt": "<timestamp>", "updatedAt": "<timestamp>" }
+  ],
+  "page": 1,
+  "pageSize": 50,
+  "total": 3
+}

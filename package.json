@@ -1,0 +1,55 @@
+{
+  "name": "presupuestos",
+  "private": true,
+  "version": "0.0.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "prisma generate && tsc -p tsconfig.build.json",
+    "vercel-build": "prisma generate && tsc -p tsconfig.build.json",
+    "dev": "npm run build && dotenv -e .env -- node dist/main.js",
+    "start": "dotenv -e .env -- node dist/main.js",
+    "test:unit": "jest",
+    "test:integration": "dotenv -e .env.test -- jest --config test/jest-integration.config.js --testPathPattern=test/integration --runInBand",
+    "test:integration:auth": "dotenv -e .env.test -- jest --config test/jest-integration.config.js --testPathPattern=test/integration/auth/ --runInBand",
+    "test:integration:api:core": "dotenv -e .env.test -- jest --config test/jest-integration.config.js --runInBand --testPathPattern=\"test/integration/api/core/\"",
+    "test:integration:api:domain": "dotenv -e .env.test -- jest --config test/jest-integration.config.js --runInBand --testPathPattern=\"test/integration/api/domain/\"",
+    "test:integration:api": "dotenv -e .env.test -- jest --config test/jest-integration.config.js --runInBand --testPathPattern=\"test/integration/api/\"",
+    "test:integration:db": "dotenv -e .env.test -- jest --config test/jest-integration.config.js --runInBand --testPathPattern=\"test/integration/\" --testPathIgnorePatterns=\"test/integration/(auth|api)/\"",
+    "db:reset:test": "dotenv -e .env.test -- prisma migrate reset --force --skip-seed",
+    "db:parity": "tsx scripts/db-parity-check.ts",
+    "db:check-sync": "dotenv -e .env -- tsx scripts/check-schema-sync.ts",
+    "verify:coverage": "dotenv -e .env.test -- tsx scripts/check-test-coverage.ts"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "^10.4.1",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "^20.14.0",
+    "@types/pg": "^8.11.6",
+    "@types/supertest": "^6.0.2",
+    "dotenv-cli": "^7.4.2",
+    "jest": "^29.7.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.12.0",
+    "prisma": "^5.16.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.1.5",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.4.1",
+    "@nestjs/core": "^10.4.1",
+    "@nestjs/platform-express": "^10.4.1",
+    "@prisma/client": "^5.16.0",
+    "@supabase/supabase-js": "^2.112.2",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "jose": "^5.10.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
+  }
+}

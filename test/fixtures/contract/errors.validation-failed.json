@@ -1,0 +1,10 @@
+{
+  "statusCode": 400,
+  "code": "VALIDATION_FAILED",
+  "message": "<message>",
+  "details": [
+    { "field": "bogus", "constraint": "<message>" }
+  ],
+  "timestamp": "<timestamp>",
+  "path": "/api/v1/accounts"
+}

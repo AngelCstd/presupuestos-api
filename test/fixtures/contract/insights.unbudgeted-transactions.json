@@ -1,0 +1,5 @@
+{
+  "transactions": [
+    { "transactionId": "<uuid>", "bookedAt": "2026-06-01", "description": "Gasto en hueco" }
+  ]
+}

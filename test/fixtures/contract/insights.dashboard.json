@@ -1,0 +1,29 @@
+{
+  "accounts": [
+    { "accountId": "<uuid>", "name": "Ahorro", "kind": "category", "currency": "MXN", "balanceCents": "0" },
+    { "accountId": "<uuid>", "name": "Comida", "kind": "category", "currency": "MXN", "balanceCents": "50000" },
+    { "accountId": "<uuid>", "name": "Hogar", "kind": "category", "currency": "MXN", "balanceCents": "0" },
+    { "accountId": "<uuid>", "name": "Nu", "kind": "cash", "currency": "MXN", "balanceCents": "950000" },
+    { "accountId": "<uuid>", "name": "Personal", "kind": "category", "currency": "MXN", "balanceCents": "0" },
+    { "accountId": "<uuid>", "name": "Por cobrar: Fer", "kind": "receivable", "currency": "MXN", "balanceCents": "0" },
+    { "accountId": "<uuid>", "name": "Salud", "kind": "category", "currency": "MXN", "balanceCents": "0" },
+    { "accountId": "<uuid>", "name": "Servicios", "kind": "category", "currency": "MXN", "balanceCents": "0" },
+    { "accountId": "<uuid>", "name": "Sueldo", "kind": "income_source", "currency": "MXN", "balanceCents": "-1000000" },
+    { "accountId": "<uuid>", "name": "TDC", "kind": "credit", "currency": "MXN", "balanceCents": "-1500" },
+    { "accountId": "<uuid>", "name": "Transporte", "kind": "category", "currency": "MXN", "balanceCents": "1500" }
+  ],
+  "unassignedCents": "798500",
+  "period": { "id": "<uuid>", "startsOn": "2026-08-01", "endsOn": "2026-08-15", "status": "open", "closedAt": null },
+  "categories": [
+    { "categoryId": "<uuid>", "name": "Comida", "assignedCents": "200000", "spentCents": "50000", "availableCents": "150000", "hasBudget": true, "status": "available" },
+    { "categoryId": "<uuid>", "name": "Transporte", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "status": "no_budget" },
+    { "categoryId": "<uuid>", "name": "Servicios", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "status": "no_budget" },
+    { "categoryId": "<uuid>", "name": "Hogar", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "status": "no_budget" },
+    { "categoryId": "<uuid>", "name": "Salud", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "status": "no_budget" },
+    { "categoryId": "<uuid>", "name": "Personal", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "status": "no_budget" },
+    { "categoryId": "<uuid>", "name": "Ahorro", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "status": "no_budget" }
+  ],
+  "unbudgetedTransactions": [
+    { "transactionId": "<uuid>", "bookedAt": "2026-06-01", "description": "Gasto en hueco" }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "allocations": [
+    {
+      "id": "<uuid>",
+      "periodId": "<uuid>",
+      "categoryId": "<uuid>",
+      "categoryName": "Comida",
+      "amountCents": "200000",
+      "source": "manual",
+      "note": null,
+      "createdAt": "<timestamp>"
+    }
+  ]
+}

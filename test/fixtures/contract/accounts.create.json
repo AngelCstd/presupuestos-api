@@ -1,0 +1,10 @@
+{
+  "id": "<uuid>",
+  "name": "Efectivo",
+  "kind": "cash",
+  "currency": "MXN",
+  "balanceCents": "0",
+  "archivedAt": null,
+  "createdAt": "<timestamp>",
+  "updatedAt": "<timestamp>"
+}

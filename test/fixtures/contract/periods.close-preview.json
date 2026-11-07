@@ -1,0 +1,17 @@
+{
+  "periodId": "<uuid>",
+  "startsOn": "2026-08-01",
+  "endsOn": "2026-08-15",
+  "nextPeriodId": "<uuid>",
+  "canClose": true,
+  "blockers": [],
+  "categories": [
+    { "categoryId": "<uuid>", "categoryName": "Comida", "rolloverType": "reset", "assignedCents": "20000", "spentCents": "50000", "availableCents": "-30000", "hasBudget": true, "action": "carry_deficit", "carryCents": "-30000" },
+    { "categoryId": "<uuid>", "categoryName": "Transporte", "rolloverType": "reset", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "action": "none", "carryCents": "0" },
+    { "categoryId": "<uuid>", "categoryName": "Servicios", "rolloverType": "accumulate", "assignedCents": "200000", "spentCents": "50000", "availableCents": "150000", "hasBudget": true, "action": "carry_forward", "carryCents": "150000" },
+    { "categoryId": "<uuid>", "categoryName": "Hogar", "rolloverType": "reset", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "action": "none", "carryCents": "0" },
+    { "categoryId": "<uuid>", "categoryName": "Salud", "rolloverType": "accumulate", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "action": "none", "carryCents": "0" },
+    { "categoryId": "<uuid>", "categoryName": "Personal", "rolloverType": "reset", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "action": "none", "carryCents": "0" },
+    { "categoryId": "<uuid>", "categoryName": "Ahorro", "rolloverType": "accumulate", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "action": "none", "carryCents": "0" }
+  ]
+}

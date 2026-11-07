@@ -1,0 +1,7 @@
+{
+  "userId": "<uuid>",
+  "email": "fixture@example.com",
+  "timezone": "America/Mexico_City",
+  "createdAt": "<timestamp>",
+  "updatedAt": "<timestamp>"
+}

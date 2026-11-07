@@ -1,0 +1,23 @@
+{
+  "data": [
+    {
+      "id": "<uuid>",
+      "name": "Wifi Totalplay",
+      "categoryId": "<uuid>",
+      "categoryName": "Servicios",
+      "accountId": "<uuid>",
+      "accountName": "TDC",
+      "amountCents": "70000",
+      "dayOfMonth": 15,
+      "nextDueOn": "<date>",
+      "lastConfirmedOn": null,
+      "isActive": true,
+      "isDue": false,
+      "createdAt": "<timestamp>",
+      "updatedAt": "<timestamp>"
+    }
+  ],
+  "page": 1,
+  "pageSize": 100,
+  "total": 1
+}

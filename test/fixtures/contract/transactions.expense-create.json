@@ -1,0 +1,14 @@
+{
+  "id": "<uuid>",
+  "bookedAt": "2026-08-05",
+  "description": "Wifi agosto",
+  "totalCents": "70000",
+  "reversesTransactionId": null,
+  "createdAt": "<timestamp>",
+  "budgetImpact": {
+    "status": "in_open_period",
+    "closedPeriodId": null,
+    "compensatedInPeriodId": null,
+    "compensations": []
+  }
+}

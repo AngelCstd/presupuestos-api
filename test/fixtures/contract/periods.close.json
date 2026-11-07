@@ -1,0 +1,19 @@
+{
+  "period": {
+    "id": "<uuid>",
+    "startsOn": "2026-08-01",
+    "endsOn": "2026-08-15",
+    "status": "closed",
+    "closedAt": "<timestamp>",
+    "createdAt": "<timestamp>",
+    "updatedAt": "<timestamp>"
+  },
+  "nextPeriodId": "<uuid>",
+  "carriedForward": [
+    { "categoryId": "<uuid>", "categoryName": "Servicios", "amountCents": "150000" }
+  ],
+  "carriedDeficits": [
+    { "categoryId": "<uuid>", "categoryName": "Comida", "amountCents": "-30000" }
+  ],
+  "released": []
+}

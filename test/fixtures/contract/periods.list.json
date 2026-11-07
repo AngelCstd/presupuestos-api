@@ -1,0 +1,9 @@
+{
+  "data": [
+    { "id": "<uuid>", "startsOn": "2026-08-16", "endsOn": "2026-08-31", "status": "open", "closedAt": null, "createdAt": "<timestamp>", "updatedAt": "<timestamp>" },
+    { "id": "<uuid>", "startsOn": "2026-08-01", "endsOn": "2026-08-15", "status": "open", "closedAt": null, "createdAt": "<timestamp>", "updatedAt": "<timestamp>" }
+  ],
+  "page": 1,
+  "pageSize": 100,
+  "total": 2
+}

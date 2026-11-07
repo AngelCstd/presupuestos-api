@@ -1,0 +1,9 @@
+{
+  "periodId": "<uuid>",
+  "categoryId": "<uuid>",
+  "assignedCents": "300000",
+  "spentCents": "70000",
+  "availableCents": "230000",
+  "hasBudget": true,
+  "status": "available"
+}

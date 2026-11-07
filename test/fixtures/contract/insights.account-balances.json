@@ -1,0 +1,15 @@
+{
+  "accounts": [
+    { "accountId": "<uuid>", "name": "Ahorro", "kind": "category", "currency": "MXN", "balanceCents": "0" },
+    { "accountId": "<uuid>", "name": "Comida", "kind": "category", "currency": "MXN", "balanceCents": "50000" },
+    { "accountId": "<uuid>", "name": "Hogar", "kind": "category", "currency": "MXN", "balanceCents": "0" },
+    { "accountId": "<uuid>", "name": "Nu", "kind": "cash", "currency": "MXN", "balanceCents": "920000" },
+    { "accountId": "<uuid>", "name": "Personal", "kind": "category", "currency": "MXN", "balanceCents": "0" },
+    { "accountId": "<uuid>", "name": "Por cobrar: Fer", "kind": "receivable", "currency": "MXN", "balanceCents": "0" },
+    { "accountId": "<uuid>", "name": "Salud", "kind": "category", "currency": "MXN", "balanceCents": "30000" },
+    { "accountId": "<uuid>", "name": "Servicios", "kind": "category", "currency": "MXN", "balanceCents": "0" },
+    { "accountId": "<uuid>", "name": "Sueldo", "kind": "income_source", "currency": "MXN", "balanceCents": "-1000000" },
+    { "accountId": "<uuid>", "name": "TDC", "kind": "credit", "currency": "MXN", "balanceCents": "0" },
+    { "accountId": "<uuid>", "name": "Transporte", "kind": "category", "currency": "MXN", "balanceCents": "0" }
+  ]
+}

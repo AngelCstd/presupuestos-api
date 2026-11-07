@@ -1,0 +1,7 @@
+{
+  "statusCode": 409,
+  "code": "PERIOD_CLOSED",
+  "message": "<message>",
+  "timestamp": "<timestamp>",
+  "path": "/api/v1/periods/<uuid>/allocations"
+}

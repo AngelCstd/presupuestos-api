@@ -1,0 +1,12 @@
+{
+  "periodId": "<uuid>",
+  "categories": [
+    { "categoryId": "<uuid>", "name": "Comida", "assignedCents": "200000", "spentCents": "50000", "availableCents": "150000", "hasBudget": true, "status": "available" },
+    { "categoryId": "<uuid>", "name": "Transporte", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "status": "no_budget" },
+    { "categoryId": "<uuid>", "name": "Servicios", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "status": "no_budget" },
+    { "categoryId": "<uuid>", "name": "Hogar", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "status": "no_budget" },
+    { "categoryId": "<uuid>", "name": "Salud", "assignedCents": "0", "spentCents": "30000", "availableCents": "-30000", "hasBudget": false, "status": "no_budget" },
+    { "categoryId": "<uuid>", "name": "Personal", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "status": "no_budget" },
+    { "categoryId": "<uuid>", "name": "Ahorro", "assignedCents": "0", "spentCents": "0", "availableCents": "0", "hasBudget": false, "status": "no_budget" }
+  ]
+}
