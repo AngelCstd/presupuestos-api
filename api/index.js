@@ -40,6 +40,22 @@ async function bootstrap() {
 }
 
 module.exports = async function handler(req, res) {
+  if (req.url === '/api/health' || req.url === '/health' || req.url === '/') {
+    res.statusCode = 200;
+    res.setHeader('content-type', 'application/json');
+    return res.end(
+      JSON.stringify({
+        status: 'ok',
+        node: process.version,
+        env: {
+          hasDbUrl: !!process.env.DATABASE_URL,
+          hasDirectUrl: !!process.env.DIRECT_URL,
+          hasSupabaseUrl: !!process.env.SUPABASE_URL,
+        },
+      }),
+    );
+  }
+
   try {
     await bootstrap();
     server(req, res);
@@ -52,6 +68,7 @@ module.exports = async function handler(req, res) {
         statusCode: 500,
         code: 'INTERNAL_ERROR',
         message: err.message,
+        stack: err.stack,
       }),
     );
   }
