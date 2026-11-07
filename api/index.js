@@ -40,6 +40,19 @@ async function bootstrap() {
 }
 
 module.exports = async function handler(req, res) {
-  await bootstrap();
-  server(req, res);
+  try {
+    await bootstrap();
+    server(req, res);
+  } catch (err) {
+    console.error('Serverless execution error:', err);
+    res.statusCode = 500;
+    res.setHeader('content-type', 'application/json');
+    res.end(
+      JSON.stringify({
+        statusCode: 500,
+        code: 'INTERNAL_ERROR',
+        message: err.message,
+      }),
+    );
+  }
 };
