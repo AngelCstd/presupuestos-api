@@ -17,6 +17,11 @@ let isInitialized = false;
 
 async function bootstrap() {
   if (!isInitialized) {
+    server.use((req, res, next) => {
+      console.log(`[BACKEND INCOMING ${new Date().toISOString()}] ${req.method} ${req.url}`);
+      next();
+    });
+
     const app = await NestFactory.create(AppModule, new ExpressAdapter(server));
     const prisma = new PrismaClient();
 

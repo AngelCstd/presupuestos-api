@@ -54,6 +54,7 @@ export class GlobalExceptionFilter implements ExceptionFilter {
         : undefined;
 
     const error = exception instanceof Error ? exception : new Error(String(exception));
+    console.error(`[BACKEND EXCEPTION on ${request.url}]:`, error.message, error.stack);
 
     try {
       await this.errorLogRepository.write({
